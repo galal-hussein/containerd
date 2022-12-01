@@ -2,6 +2,11 @@ module github.com/containerd/containerd
 
 go 1.19
 
+replace (
+	github.com/containerd/stargz-snapshotter => github.com/k3s-io/stargz-snapshotter v0.13.0-k3s1
+	github.com/containerd/stargz-snapshotter/estargz => github.com/k3s-io/stargz-snapshotter/estargz v0.13.0-k3s1
+)
+
 require (
 	github.com/AdaLogics/go-fuzz-headers v0.0.0-20230106234847-43070de90fa1 // replaced; see replace rules for actual version used.
 	github.com/AdamKorcz/go-118-fuzz-build v0.0.0-20221215162035-5330a85ea652
