@@ -24,6 +24,8 @@ import (
 	"github.com/containerd/containerd/log"
 	runtime_alpha "github.com/containerd/containerd/third_party/k8s.io/cri-api/pkg/apis/runtime/v1alpha2"
 	"github.com/containerd/containerd/tracing"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
 	ctrdutil "github.com/containerd/containerd/pkg/cri/util"
@@ -1727,4 +1729,7 @@ func (in *instrumentedService) ListPodSandboxMetrics(ctx context.Context, r *run
 
 	res, err = in.c.ListPodSandboxMetrics(ctx, r)
 	return res, errdefs.ToGRPC(err)
+}
+func (in *instrumentedService) RuntimeConfig(ctx context.Context, r *runtime.RuntimeConfigRequest) (res *runtime.RuntimeConfigResponse, err error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RuntimeConfig not implemented")
 }
